@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+id: bt_all_user_blog_posts
+label: 'All user blog posts'
+description: 'Page that show a list of all user blog posts.'
+use_admin_theme: false
+path: '/blog/{user}'
+access_logic: and
+access_conditions: {  }
+parameters:
+  user:
+    machine_name: user
+    type: 'entity:user'
+    label: User

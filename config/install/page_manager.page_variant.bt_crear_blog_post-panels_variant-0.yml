@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.bt_add_blog_post
+  module:
+    - entity_forms_in_blocks
+    - panels
+id: bt_add_blog_post-panels_variant-0
+label: 'Deafult Add Blog Post'
+variant: panels_variant
+variant_settings:
+  blocks:
+    2b5d8916-9abf-43ee-9729-1c791a42aff7:
+      id: entity_forms_in_blocks
+      label: 'Entity form in block'
+      provider: entity_forms_in_blocks
+      label_display: '0'
+      entity_type: node
+      bundle: blog_post
+      form_mode: default
+      region: contentmain
+      weight: 0
+      uuid: 2b5d8916-9abf-43ee-9729-1c791a42aff7
+      context_mapping: {  }
+  id: panels_variant
+  uuid: cc1a6a60-e607-4c7f-99a2-68a10cda65bc
+  label: null
+  weight: 0
+  layout: radix_boxton
+  layout_settings: {  }
+  page_title: 'Add a new post in the blog.'
+  storage_type: page_manager
+  storage_id: bt_add_blog_post-panels_variant-0
+  builder: standard
+page: bt_add_blog_post
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Blog tags'
+vid: bt_blog_tags
+description: 'Use tags to group contents of similar topics.'
+hierarchy: 0
+weight: 0

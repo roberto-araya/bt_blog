@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: bt_blog_publication
+label: 'Blog post'
+revision: 1
+description: 'Show a blog post'

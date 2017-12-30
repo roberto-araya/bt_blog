@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.bt_blog_publication
+    - field.storage.block_content.field_bt_node_reference
+    - node.type.blog_post
+id: block_content.bt_blog_publication.field_bt_node_reference
+field_name: field_bt_node_reference
+entity_type: block_content
+bundle: bt_blog_publication
+label: 'Blog post publication'
+description: 'Select the blog post that you want to show.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      blog_post: blog_post
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

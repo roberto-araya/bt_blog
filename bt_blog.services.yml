@@ -1,0 +1,16 @@
+services:
+  bt_blog.lister:
+    class: Drupal\bt_blog\BlogLister
+    arguments: ['@current_user', '@config.factory']
+    tags:
+      - { name: blog_lister }
+  bt_blog.config.overrider:
+    class: Drupal\bt_blog\Config\ConfigBlogOverride
+    arguments: ['@config.factory']
+    tags:
+      - {name: config.factory.override, priority: 25}
+  bt_blog.breadcrumbs:
+    class: Drupal\bt_blog\Breadcrumb\BlogBreadcrumbBuilder
+    arguments: ['@current_user']
+    tags:
+      - { name: breadcrumb_builder, priority: 1010 }

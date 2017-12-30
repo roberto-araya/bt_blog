@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: bt_blog_tags
+label: 'Tags Blog'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/blog/etiqueta/[term:name]'
+selection_criteria:
+  65d868e5-3fa1-4872-87b5-a2da3e4be12e:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      bt_blog_tags: bt_blog_tags
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 65d868e5-3fa1-4872-87b5-a2da3e4be12e
+selection_logic: and
+weight: -5
+relationships: {  }

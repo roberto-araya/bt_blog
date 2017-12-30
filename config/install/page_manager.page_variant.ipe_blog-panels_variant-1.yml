@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.ipe_blog
+    - views.view.blog
+  module:
+    - panels
+    - views
+id: ipe_blog-panels_variant-1
+label: 'Blog Variant 1'
+variant: panels_variant
+variant_settings:
+  blocks: {  }
+  id: panels_variant
+  label: null
+  weight: 0
+  layout: two_col
+  layout_settings: {  }
+  page_title: Blog
+  storage_type: page_manager
+  storage_id: ipe_blog-panels_variant-1
+  builder: ipe
+  uuid: 989701c0-1201-49bd-9c4f-f6e76fcba529
+page: ipe_blog
+weight: 1
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

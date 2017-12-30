@@ -1,0 +1,17 @@
+name: Btester Blog
+description: "Blog feature"
+core: 8.x
+type: module
+dependencies:
+  - bt_cms
+  - bt_media
+  - node
+  - views
+  - menu_ui
+  - comment
+  - path
+  - text
+  - user
+  - entity_reference
+version: 8.x-1.0
+package: Btester

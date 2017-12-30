@@ -1,0 +1,18 @@
+third_party_settings:
+  panelizer:
+    displays:
+      default_blog_post:
+        blocks:
+          60327333-9c11-473f-a288-9f484652a91b:
+            label: Comentarios
+          f565b308-cb83-4334-a955-5f1b21aaffbe:
+            label: 'Escrito por'
+          497af5be-96b9-470b-bc18-18ec9127e601:
+            label: 'Añadir imagen de portada'
+          eb31b63d-ba1a-49b9-a077-1367169f1de2:
+            label: Párrafos
+          e3a39046-0f70-4b09-b3d3-0c4e52a765e1:
+            label: Etiquetas
+          92a0ff82-1475-475f-af5b-2728cc17964b:
+            label: Fecha
+        label: 'Default Blog Post'

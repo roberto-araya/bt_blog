@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.bt_all_user_blog_posts
+    - views.view.blog
+  module:
+    - panels
+    - views
+id: bt_all_user_blog_posts-panels_variant-0
+label: 'Default user blog posts'
+variant: panels_variant
+variant_settings:
+  blocks:
+    95c2c652-c985-4c14-a7b0-c570ed9e9522:
+      id: 'views_block:blog-all_user_posts'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: 0
+      uuid: 95c2c652-c985-4c14-a7b0-c570ed9e9522
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 18c5546c-9c6f-4868-8b26-09e3460f4a52
+  label: null
+  weight: 0
+  layout: two_col
+  layout_settings: {  }
+  page_title: null
+  storage_type: page_manager
+  storage_id: bt_all_user_blog_posts-panels_variant-0
+  builder: ipe
+page: bt_all_user_blog_posts
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

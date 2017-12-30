@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ipe_blog
+label: Blog
+description: 'A page that show the last blog posts.'
+use_admin_theme: false
+path: /blog
+access_logic: and
+access_conditions: {  }
+parameters: {  }
