@@ -1,7 +1,7 @@
 {
   "name": "drupal/bt_blog",
   "type": "drupal-module",
-  "description": "",
+  "description": "This module is a fork of Blog, it extend Btester CMS by adding a blog content type.",
   "keywords": ["Drupal"],
   "homepage": "https://www.drupal.org/project/bt_blog",
   "license": "GPL-2.0+",
@@ -18,7 +18,7 @@
     "source": "http://git.drupal.org/project/bt_blog.git"
   },
   "require": {
-    "drupal/bt_cms": "dev-master",
-    "drupal/bt_media": "dev-master"
+    "drupal/bt_cms": "1.x-dev",
+    "drupal/bt_media": "1.x-dev"
   }
 }
