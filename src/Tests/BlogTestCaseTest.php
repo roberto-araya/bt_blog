@@ -11,15 +11,15 @@ use Drupal\simpletest\WebTestBase;
 
 /**
  * Test blog functionality.
- * 
+ *
  * @group blog
  */
 class BlogTestCaseTest extends WebTestBase {
-  
+
   protected $big_user;
   protected $own_user;
   protected $any_user;
-  
+
   protected $profile = 'standard';
 
   /**
@@ -28,7 +28,7 @@ class BlogTestCaseTest extends WebTestBase {
    * @var array
    */
   public static $modules = array('blog');
-    
+
   public static function getInfo() {
     return array(
       'name' => 'Blog functionality',
@@ -36,7 +36,7 @@ class BlogTestCaseTest extends WebTestBase {
       'group' => 'Blog',
     );
   }
-  
+
   protected function setUp() {
     parent::setUp();
 
@@ -79,13 +79,13 @@ class BlogTestCaseTest extends WebTestBase {
    * Login users, create blog nodes, and test blog functionality through the admin and user interfaces.
    */
   function testBlog() {
-      
+
     // Create a node so that the block of recent posts will display.
     $node = $this->drupalCreateNode(array('type' => 'blog_post', 'uid' => $this->any_user->id()));
-    
+
     // Login the admin user.
     $this->drupalLogin($this->big_user);
-      
+
     // Place the recent blog posts block.
     $blog_block = $this->drupalPlaceBlock('blog_blockblock-views-block-blog-blog-block');
     //print_r($blog_block->label() . "XXXXXXXXXXXXXXXXX \n");
@@ -160,9 +160,9 @@ class BlogTestCaseTest extends WebTestBase {
     $this->assertResponse(200);
     $this->assertTitle($node->getTitle() . ' | Drupal', t('Blog node was displayed'));
     //$breadcrumb = array(
-      //l(t('Home'), NULL),
-      //l(t('Blogs'), 'blog'),
-      //l(t("!name's blog", array('!name' => $node_user->getUsername())), 'blog/' . $node_user->id()),
+    //l(t('Home'), NULL),
+    //l(t('Blogs'), 'blog'),
+    //l(t("!name's blog", array('!name' => $node_user->getUsername())), 'blog/' . $node_user->id()),
     //);
 
     // @todo sort out the breadcrumbs

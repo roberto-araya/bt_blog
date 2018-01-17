@@ -5,9 +5,8 @@
  * Enables multi-user blogs.
  */
 
-use \Drupal\Core\Url;
-use \Drupal\Core\Session;
-use \Drupal\node\NodeInterface;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_ENTITY_TYPE_view().
@@ -17,9 +16,10 @@ function bt_blog_user_view(&$build, $account, $display, $view_mode) {
     // Build internal link based on router.
     $url = Url::fromRoute('page_manager.page_view_bt_all_user_blog_posts_bt_all_user_blog_posts-panels_variant-0', array('user' => $account->id()));
     $internal_link = \Drupal::l(t('View recent blog entries'), $url);
-    
-    //TODO review whether this is still an acceptable way to add to the build array.
-    $build['summary']['blog'] =  array(
+
+    // TODO:
+    // Review whether this is still an acceptable way to add to the build array.
+    $build['summary']['blog'] = array(
       '#type' => 'user_profile_item',
       '#title' => t('Blog'),
       '#markup' => $internal_link,
@@ -47,6 +47,7 @@ function bt_blog_help($path, $arg) {
       $output .= '<dt>' . t('Blocks') . '</dt>';
       $output .= '<dd>' . t('The Blog module also creates a default <em>Recent blog posts</em> block that may be enabled at the <a href="@blocks">blocks administration page</a>.', array('@blocks' => url('admin/structure/block'))) . '</dd>';
       $output .= '</dl>';
+
       return $output;
   }
 }
@@ -98,16 +99,18 @@ function _bt_blog_post_exists($account) {
 }
 
 /**
- * Implements hook_entity_insert()
+ * Implements hook_entity_insert().
+ *
  * @param \Drupal\node\NodeInterface $entity
  */
-function bt_blog_node_insert(\Drupal\node\NodeInterface $entity) {
-    // Convert to lowercase, trim spaces, replace spaces with underscore and then truncate to 60 chars.
-    $pathTitle = substr(str_replace(" ","-",trim(strtolower($entity->label()))),0,60);
-    $author = $entity->getRevisionAuthor()->getUsername();
+function bt_blog_node_insert(NodeInterface $entity) {
+  // Convert to lowercase, trim spaces,
+  // replace spaces with underscore and then truncate to 60 chars.
+  $pathTitle = substr(str_replace(" ", "-", trim(strtolower($entity->label()))), 0, 60);
+  $author = $entity->getRevisionAuthor()->getUsername();
 
-    if ($entity->bundle() == 'blog_post') {
-        \Drupal::service('path.alias_storage')->save("/node/" . $entity->id() . '/edit', "/blog/" . $author . "/" . $pathTitle . '/edit', "en");
-        \Drupal::service('path.alias_storage')->save("/node/" . $entity->id() . '/delete', "/blog/" . $author . "/"  . $pathTitle . '/delete', "en");
-    }
+  if ($entity->bundle() == 'blog_post') {
+    \Drupal::service('path.alias_storage')->save("/node/" . $entity->id() . '/edit', "/blog/" . $author . "/" . $pathTitle . '/edit', "en");
+    \Drupal::service('path.alias_storage')->save("/node/" . $entity->id() . '/delete', "/blog/" . $author . "/" . $pathTitle . '/delete', "en");
+  }
 }
