@@ -4,19 +4,15 @@ namespace Drupal\bt_blog\Breadcrumb;
 
 use Drupal\Core\Breadcrumb\Breadcrumb;
 use Drupal\Core\Breadcrumb\BreadcrumbBuilderInterface;
-use Drupal\Core\Session\AccountProxy;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Link;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\user\Entity\User;
 
 class BlogBreadcrumbBuilder implements BreadcrumbBuilderInterface {
 
   /**
-   * @var AccountInterface
+   * @var siteName
    */
-  protected $account;
+  protected $siteName;
 
   /**
    * The routes that will change their breadcrumbs.
@@ -28,10 +24,8 @@ class BlogBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   /**
    * Class constructor.
    */
-  public function __construct(AccountProxy $current_user) {
-    $user_id = $current_user->id();
-    $user_account = User::load($user_id);
-    $this->account = $user_account;
+  public function __construct($configFactory) {
+    $this->siteName = $configFactory->get('system.site')->get('name');
   }
 
   /**
@@ -50,15 +44,15 @@ class BlogBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   /**
    * {@inheritdoc}
    */
-  public function build(RouteMatchInterface $route_match) {
+  public function build() {
     $breadcrumb = new Breadcrumb();
     $breadcrumb->addCacheContexts(["url"]);
-    $site_name = \Drupal::config('system.site')->get('name');
-    $breadcrumb->addLink(Link::createFromRoute($site_name, 'page_manager.page_view_app_app-panels_variant-0'));
+    $breadcrumb->addLink(Link::createFromRoute($this->siteName, 'page_manager.page_view_app_app-panels_variant-0'));
     $breadcrumb->addLink(Link::createFromRoute('Website', 'page_manager.page_view_app_website_app_website-panels_variant-0'));
     $breadcrumb->addLink(Link::createFromRoute('Content', 'page_manager.page_view_app_website_content_app_website_content-panels_variant-0'));
     $breadcrumb->addLink(Link::createFromRoute('Create Content', 'node.add_page'));
 
     return $breadcrumb;
   }
+
 }
