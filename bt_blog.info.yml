@@ -3,15 +3,13 @@ description: "Blog feature"
 core: 8.x
 type: module
 dependencies:
-  - bt_cms
-  - bt_media
-  - node
-  - views
-  - menu_ui
-  - comment
-  - path
-  - text
-  - user
-  - entity_reference
-version: 8.x-1.0
+  - bt_media:bt_media
+  - drupal:node
+  - drupal:views
+  - drupal:menu_ui
+  - drupal:comment
+  - drupal:path
+  - drupal:text
+  - drupal:user
+  - drupal:entity_reference
 package: Btester
