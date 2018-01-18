@@ -18,15 +18,21 @@ class ConfigBlogOverride implements ConfigFactoryOverrideInterface {
   private $viewsAdminContent;
   private $viewsFullAdminContent;
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct(ConfigFactory $configFactory) {
     $this->createContent = $configFactory->get('user.role.bt_create_content');
     $this->deleteContent = $configFactory->get('user.role.bt_delete_content');
     $this->deleteOwnContent = $configFactory->get('user.role.bt_delete_own_content');
     $this->editContent = $configFactory->get('user.role.bt_edit_publish_content');
     $this->viewsAdminContent = $configFactory->get('views.view.bt_admin_content');
-    $this->views_fullAdminContent = $configFactory->get('views.view.bt_full_admin_content');
+    $this->viewsFullAdminContent = $configFactory->get('views.view.bt_full_admin_content');
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function loadOverrides($names) {
     $overrides = array();
 
@@ -83,7 +89,7 @@ class ConfigBlogOverride implements ConfigFactoryOverrideInterface {
     }
     // Add blog filter values to views.view.bt_full_admin_content view.
     if (in_array('views.view.bt_full_admin_content', $names)) {
-      $views = $this->views_fullAdminContent;
+      $views = $this->viewsFullAdminContent;
       $filter_values = $views->get('display.default.display_options.filters.type.value');
       $values = array_merge($filter_values, $blog_values);
       $overrides['views.view.bt_full_admin_content']['display']['default']['display_options']['filters']['type']['value'] = $values;

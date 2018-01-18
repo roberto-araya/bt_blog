@@ -11,7 +11,7 @@ use Drupal\node\NodeInterface;
 /**
  * Implements hook_ENTITY_TYPE_view().
  */
-function bt_blog_user_view(&$build, $account, $display, $view_mode) {
+function bt_blog_user_view(&$build, $account) {
   if ($account->hasPermission('create blog_post content')) {
     // Build internal link based on router.
     $url = Url::fromRoute('page_manager.page_view_bt_all_user_blog_posts_bt_all_user_blog_posts-panels_variant-0', array('user' => $account->id()));
@@ -31,7 +31,7 @@ function bt_blog_user_view(&$build, $account, $display, $view_mode) {
 /**
  * Implements hook_help().
  */
-function bt_blog_help($path, $arg) {
+function bt_blog_help($path) {
   switch ($path) {
     case 'admin/help#blog':
       $output = '<h3>' . t('About') . '</h3>';
@@ -87,7 +87,7 @@ function bt_blog_page_user_access($account) {
  * Helper function to determine if a user has blog posts already.
  */
 function _bt_blog_post_exists($account) {
-  return (bool)db_select('node_field_data', 'n')
+  return (bool) db_select('node_field_data', 'n')
     ->fields('n', array('nid'))
     ->condition('type', 'blog')
     ->condition('uid', $account->id())
@@ -100,8 +100,6 @@ function _bt_blog_post_exists($account) {
 
 /**
  * Implements hook_entity_insert().
- *
- * @param \Drupal\node\NodeInterface $entity
  */
 function bt_blog_node_insert(NodeInterface $entity) {
   // Convert to lowercase, trim spaces,

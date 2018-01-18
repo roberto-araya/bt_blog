@@ -7,15 +7,24 @@ use Drupal\Core\Breadcrumb\BreadcrumbBuilderInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Link;
 
+/**
+ * Class BlogBreadcrumbBuilder.
+ *
+ * @package Drupal\bt_blog\Breadcrumb
+ */
 class BlogBreadcrumbBuilder implements BreadcrumbBuilderInterface {
 
   /**
-   * @var siteName
+   * The site name.
+   *
+   * @var string
    */
   protected $siteName;
 
   /**
    * The routes that will change their breadcrumbs.
+   *
+   * @var array
    */
   private $routes = array(
     'page_manager.page_view_bt_add_blog_post',
