@@ -110,5 +110,6 @@ function bt_blog_node_insert(NodeInterface $entity) {
   if ($entity->bundle() == 'blog_post') {
     \Drupal::service('path.alias_storage')->save("/node/" . $entity->id() . '/edit', "/blog/" . $author . "/" . $pathTitle . '/edit', "en");
     \Drupal::service('path.alias_storage')->save("/node/" . $entity->id() . '/delete', "/blog/" . $author . "/" . $pathTitle . '/delete', "en");
+    \Drupal::service('path.alias_storage')->save("/node/" . $entity->id() . '/latest', "/blog/" . $author . "/" . $pathTitle . '/latest', "en");
   }
 }
