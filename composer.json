@@ -20,7 +20,7 @@
     "source": "http://git.drupal.org/project/bt_blog.git"
   },
   "require": {
-    "drupal/bt_cms": "1.x-dev",
-    "drupal/bt_media": "1.x-dev"
+    "drupal/bt_cms": "dev-dev",
+    "drupal/bt_media": "dev-dev"
   }
 }
