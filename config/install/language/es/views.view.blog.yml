@@ -1,0 +1,79 @@
+description: 'Muestra una lista con todas las publicaciones del blog, una lista con todas las publicaciones de los usuarios, los canales RSS.'
+display:
+  default:
+    display_title: Maestro
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+      pager:
+        options:
+          tags:
+            previous: '< Previos'
+            next: 'Siguientes >'
+            first: '<< Primeros'
+            last: 'Últimos >>'
+          expose:
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todos -'
+      title: 'Publicaciones del blog'
+      empty:
+        area_text_custom:
+          content: 'No hay publicaciones del blog que mostrar aún.'
+  all_post:
+    display_title: 'Todas las publicaciones'
+    display_options:
+      display_description: 'Muestra una lista con todas las publicaciones del blog de todos los usuarios.'
+      block_description: 'Todas las publicaciones del blog.'
+      block_category: 'Listas Contenido'
+      title: 'Publicaciones del blog'
+      pager:
+        options:
+          tags:
+            previous: '< Previos'
+            next: 'Siguientes >'
+            first: '<< Primeros'
+            last: 'Últimos >>'
+          expose:
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todos -'
+  all_post_feed:
+    display_title: 'RSS de todas las publicaciones del blog'
+    display_options:
+      display_description: 'RSS de todas las publicaciones del blog.'
+      title: 'Publicaciones del blog'
+  all_user_posts:
+    display_title: 'Todas las publicaciones del usuario'
+    display_options:
+      display_description: 'Muestra una lista con todas las publicaciones del usuario.'
+      title: 'Todas las publicaciones del usuario'
+      block_description: 'Todas las publicaciones del usuario.'
+      block_category: 'Listas Contenido'
+  featured_post:
+    display_title: Destacado
+    display_options:
+      display_description: 'Muestra una lista con todas las publicaciones de blog destacadas'
+      block_description: 'Publicaciones de blog destacadas.'
+      block_category: 'Listas Contenido'
+      title: 'Publicaciones del blog'
+  front_post:
+    display_title: 'Promovido a la página de inicio'
+    display_options:
+      display_description: 'Muestra una lista con todos las publicaciones de blog promovidas a la página principal.'
+      block_description: 'Muestra una lista con todos las publicaciones de blog promovidas a la página principal.'
+      block_category: 'listas Contenido'
+      title: 'Publicaciones promovidas'
+  last_post:
+    display_title: 'Últimas publicaciones'
+    display_options:
+      display_description: 'Muestra una lista con las últimas publicaciones de todos los usuarios.'
+      block_description: 'Últimas publicaciones del blog'
+      block_category: 'Listas Contenido'
+      title: 'Últimas publicaciones'
+  user_all_post_feed:
+    display_title: 'RSS Todas las publicaciones de blog del usuario'
+    display_options:
+      display_description: 'RSS de todas las publicaciones de blog del usuario.'
+      title: 'Todas las publicaciones de blog del usuario'

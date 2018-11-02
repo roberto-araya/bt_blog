@@ -1,0 +1,17 @@
+label: 'Etiquetas blog'
+description: 'Etiquetas usadas en las publicaciones de blog.'
+display:
+  default:
+    display_title: Maestro
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+  bt_tags_blog:
+    display_title: 'Etiquetas blog'
+    display_options:
+      display_description: 'Etiquetas blog'
+      block_description: 'Etiquetas blog'
+      block_category: 'Listas Contenido'

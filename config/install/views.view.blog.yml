@@ -222,10 +222,10 @@ display:
           id: 0
           total_pages: null
           tags:
-            previous: Previoud
-            next: Next
-            first: First
-            last: Last
+            previous: '< Previous'
+            next: 'Next >'
+            first: '<< First'
+            last: 'Last >>'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -794,7 +794,7 @@ display:
         default: '0'
         blog_all: '0'
         blog_block: '0'
-      display_description: 'Feed RSS dof all user blog posts.'
+      display_description: 'Feed RSS of all user blog posts.'
       arguments:
         uid:
           id: uid
