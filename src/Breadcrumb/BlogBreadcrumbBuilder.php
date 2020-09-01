@@ -27,9 +27,9 @@ class BlogBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    *
    * @var array
    */
-  private $routes = array(
+  private $routes = [
     'page_manager.page_view_bt_add_blog_post',
-  );
+  ];
 
   /**
    * Class constructor.
@@ -57,9 +57,9 @@ class BlogBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   public function build(RouteMatchInterface $route_match) {
     $breadcrumb = new Breadcrumb();
     $breadcrumb->addCacheContexts(["url"]);
-    $breadcrumb->addLink(Link::createFromRoute($this->siteName, 'page_manager.page_view_app_app-panels_variant-0'));
-    $breadcrumb->addLink(Link::createFromRoute('Website', 'page_manager.page_view_app_website_app_website-panels_variant-0'));
-    $breadcrumb->addLink(Link::createFromRoute('Content', 'page_manager.page_view_app_website_content_app_website_content-panels_variant-0'));
+    $breadcrumb->addLink(Link::createFromRoute($this->siteName, 'bt_core.app'));
+    $breadcrumb->addLink(Link::createFromRoute('Website', 'bt_cms.website'));
+    $breadcrumb->addLink(Link::createFromRoute('Content', 'bt_cms.website_content'));
     $breadcrumb->addLink(Link::createFromRoute('Create Content', 'node.add_page'));
 
     return $breadcrumb;

@@ -1,1 +1,40 @@
 <?php
+
+/**
+ * @file
+ * Install file of bt_blog module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function bt_blog_install() {
+  // Add permissions to the roles.
+  $roles = [
+    'user.role.bt_create_content' => [
+      'create blog_post content',
+      'edit own blog_post content',
+      'revert blog_post revisions',
+      'view blog_post revisions',
+    ],
+    'user.role.bt_delete_content' => [
+      'delete any blog_post content',
+      'delete blog_post revisions',
+    ],
+    'user.role.bt_delete_own_content' => [
+      'delete own blog_post content',
+    ],
+    'user.role.bt_edit_publish_content' => [
+      'edit any blog_post content',
+    ],
+  ];
+
+  foreach ($roles as $role => $new_permissions) {
+    $permissions = \Drupal::service('config.factory')->get($role)->get('permissions');
+
+    $config = \Drupal::service('config.factory')->getEditable($role);
+    $config->set('permissions', array_merge($permissions, $new_permissions));
+    $config->save();
+  }
+
+}

@@ -44,13 +44,6 @@ display:
     display_options:
       display_description: 'RSS de todas las publicaciones del blog.'
       title: 'Publicaciones del blog'
-  all_user_posts:
-    display_title: 'Todas las publicaciones del usuario'
-    display_options:
-      display_description: 'Muestra una lista con todas las publicaciones del usuario.'
-      title: 'Todas las publicaciones del usuario'
-      block_description: 'Todas las publicaciones del usuario.'
-      block_category: 'Listas Contenido'
   featured_post:
     display_title: Destacado
     display_options:

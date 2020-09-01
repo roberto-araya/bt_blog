@@ -5,24 +5,7 @@ dependencies:
     - field.storage.node.field_bt_intro
     - node.type.blog_post
   module:
-    - better_formats
     - text
-third_party_settings:
-  better_formats:
-    allowed_formats_toggle: 1
-    allowed_formats:
-      bt_minimal_redaction: bt_minimal_redaction
-      bt_simple_redaction: 0
-      bt_full_redaction: 0
-    default_order_toggle: 0
-    default_order_wrapper:
-      formats:
-        bt_simple_redaction:
-          weight: '-10'
-        bt_full_redaction:
-          weight: '-9'
-        bt_minimal_redaction:
-          weight: '0'
 id: node.blog_post.field_bt_intro
 field_name: field_bt_intro
 entity_type: node

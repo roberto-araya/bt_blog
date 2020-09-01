@@ -2,24 +2,24 @@ langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.bt_blog_publication
-    - field.storage.block_content.field_bt_node_reference
+    - field.storage.node.field_bt_content_image
+    - media.type.bt_image
     - node.type.blog_post
-id: block_content.bt_blog_publication.field_bt_node_reference
-field_name: field_bt_node_reference
-entity_type: block_content
-bundle: bt_blog_publication
-label: Blog
+id: node.blog_post.field_bt_content_image
+field_name: field_bt_content_image
+entity_type: node
+bundle: blog_post
+label: 'Add front image'
 description: ''
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:media'
   handler_settings:
     target_bundles:
-      blog_post: blog_post
+      bt_image: bt_image
     sort:
       field: _none
     auto_create: false

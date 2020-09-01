@@ -9,8 +9,8 @@ services:
     arguments: ['@config.factory']
     tags:
       - {name: config.factory.override, priority: 25}
-  bt_blog.breadcrumbs:
-    class: Drupal\bt_blog\Breadcrumb\BlogBreadcrumbBuilder
-    arguments: ['@config.factory']
-    tags:
-      - { name: breadcrumb_builder, priority: 1010 }
+  #bt_blog.breadcrumbs:
+  #  class: Drupal\bt_blog\Breadcrumb\BlogBreadcrumbBuilder
+  #  arguments: ['@config.factory']
+  #  tags:
+  #    - { name: breadcrumb_builder, priority: 1010 }

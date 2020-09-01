@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.bt_blog_publication
+    - core.entity_view_mode.block_content.bt_teaser_image
+    - field.field.block_content.bt_blog_publication.field_bt_node_reference
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: block_content.bt_blog_publication.bt_teaser_image
+targetEntityType: block_content
+bundle: bt_blog_publication
+mode: bt_teaser_image
+content:
+  field_bt_node_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: bt_teaser_image
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true

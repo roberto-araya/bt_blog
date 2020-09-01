@@ -6,7 +6,7 @@
     "Drupal"
   ],
   "homepage": "https://www.drupal.org/project/bt_blog",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "Roberto Araya",
@@ -20,7 +20,7 @@
     "source": "http://git.drupal.org/project/bt_blog.git"
   },
   "require": {
-    "drupal/bt_cms": "dev-dev",
-    "drupal/bt_media": "dev-dev"
+    "drupal/bt_image": "dev-1.x",
+    "drupal/bt_cbc": "dev-1.x"
   }
 }

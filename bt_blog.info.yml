@@ -1,9 +1,11 @@
 name: Btester Blog
 description: "Blog feature"
 core: 8.x
+core_version_requirement: ^8
 type: module
 dependencies:
-  - bt_media:bt_media
+  - bt_image:bt_image
+  - bt_cbc:bt_cbc
   - drupal:node
   - drupal:views
   - drupal:menu_ui
