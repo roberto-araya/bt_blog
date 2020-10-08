@@ -61,7 +61,10 @@ function bt_blog_node_links_alter(array &$node_links, NodeInterface $entity, arr
       'url' => Url::fromRoute('view.blog.user_posts_page', [
         'user' => $entity->getOwnerId(),
       ]),
-      'attributes' => ['title' => t("Read %username latest blog entries.", ['%username' => $entity->getOwner()->getDisplayName()])],
+      'attributes' => [
+        'title' => t("Read %username latest blog entries.",
+        ['%username' => $entity->getOwner()->getDisplayName()]),
+      ],
     ];
     $node_links['usernames_blog'] = [
       '#theme' => 'links__node__blog',

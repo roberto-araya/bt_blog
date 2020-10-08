@@ -9,7 +9,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Config\ConfigFactory;
 
 /**
- * Class BlogBreadcrumbBuilder.
+ * BlogBreadcrumbBuilder for blog entities.
  *
  * @package Drupal\bt_blog\Breadcrumb
  */
