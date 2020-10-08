@@ -54,7 +54,7 @@ class ConfigBlogOverride implements ConfigFactoryOverrideInterface {
     if (in_array('workflows.workflow.editorial', $names)) {
       $workflow = $this->workflow;
       $entity_types_values = $workflow->get('type_settings.entity_types');
-      if (array_key_exists('node', $entity_types_values)) {
+      if (is_array($entity_types_values) && array_key_exists('node', $entity_types_values)) {
         $entity_types_values['node'][] = 'blog_post';
         $overrides['workflows.workflow.editorial']['type_settings']['entity_types']['node'] = $entity_types_values['node'];
       }
