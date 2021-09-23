@@ -1,7 +1,6 @@
 name: Btester Blog
 description: "Blog feature"
-core: 8.x
-core_version_requirement: ^8
+core_version_requirement: ^8.8
 type: module
 dependencies:
   - bt_image:bt_image
