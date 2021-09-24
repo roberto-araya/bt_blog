@@ -16,8 +16,7 @@ function bt_blog_user_view(&$build, $account) {
     // Build internal link based on router.
     $url = Url::fromRoute('view.blog.user_posts_page', ['user' => $account->id()]);
     $internal_link = \Drupal::l(t('View recent blog entries'), $url);
-    // TODO:
-    // Review whether this is still an acceptable way to add to the build array.
+    // @todo Review whether this is still an acceptable way to add to the build array.
     $build['summary']['blog'] = [
       '#type' => 'user_profile_item',
       '#title' => t('Blog'),
