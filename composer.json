@@ -20,7 +20,7 @@
     "source": "http://git.drupal.org/project/bt_blog.git"
   },
   "require": {
-    "drupal/bt_image": "^1.0-alpha1",
-    "drupal/bt_cbc": "^1.0-alpha1"
+    "drupal/bt_image": "^2.0.0-alpha1",
+    "drupal/bt_cbc": "^2.0.0-alpha1"
   }
 }
