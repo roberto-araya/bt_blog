@@ -8,6 +8,7 @@
 use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
 use Drupal\path_alias\Entity\PathAlias;
+use Drupal\Core\Link;
 
 /**
  * Implements hook_ENTITY_TYPE_view().
@@ -16,7 +17,7 @@ function bt_blog_user_view(&$build, $account) {
   if ($account->hasPermission('create blog_post content')) {
     // Build internal link based on router.
     $url = Url::fromRoute('view.blog.user_posts_page', ['user' => $account->id()]);
-    $internal_link = \Drupal::l(t('View recent blog entries'), $url);
+    $internal_link = Link::fromTextAndUrl(t('View recent blog entries'),$url)->toString();
     // @todo Review whether this is still an acceptable way to add to the build array.
     $build['summary']['blog'] = [
       '#type' => 'user_profile_item',
@@ -103,28 +104,24 @@ function _bt_blog_post_exists($account) {
  * Implements hook_entity_insert().
  */
 function bt_blog_node_insert(NodeInterface $entity) {
-  // Convert to lowercase, trim spaces,
-  // replace spaces with underscore and then truncate to 60 chars.
-  $pathTitle = substr(str_replace(" ", "-", trim(strtolower($entity->label()))), 0, 60);
-  $author = $entity->getRevisionAuthor()->getUsername();
-
   if ($entity->bundle() == 'blog_post') {
+    // Convert to lowercase, trim spaces,
+    // replace spaces with underscore and then truncate to 60 chars.
+    $pathTitle = substr(str_replace(" ", "-", trim(strtolower($entity->label()))), 0, 60);
+    $author = $entity->getRevisionUser()->getDisplayName();
 
-    $path_alias = PathAlias::create([
-      'path' => '/node/' . $entity->id() . '/edit',
-      'alias' => '/blog/' . $author . "/" . $pathTitle . '/edit',
-    ]);
+    $paths = [
+      '/node/' . $entity->id() . '/edit' => '/blog/' . $author . "/" . $pathTitle . '/edit',
+      '/node/' . $entity->id() . '/delete' => '/blog/' . $author . "/" . $pathTitle . '/delete',
+      '/node/' . $entity->id() . '/latest' => '/blog/' . $author . "/" . $pathTitle . '/latest',
+    ];
 
-    $path_alias = PathAlias::create([
-      'path' => '/node/' . $entity->id() . '/delete',
-      'alias' => '/blog/' . $author . "/" . $pathTitle . '/delete',
-    ]);
-
-    $path_alias = PathAlias::create([
-      'path' => '/node/' . $entity->id() . '/latest',
-      'alias' => '/blog/' . $author . "/" . $pathTitle . '/latest',
-    ]);
-    $path_alias->save();
-
+    foreach ($paths as $path => $alias) {
+      $path_alias = PathAlias::create([
+        'path' => $path,
+        'alias' => $alias,
+      ]);
+      $path_alias->save();
+    }
   }
 }
