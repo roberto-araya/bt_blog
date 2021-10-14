@@ -39,18 +39,6 @@ class ConfigBlogOverride implements ConfigFactoryOverrideInterface {
   public function loadOverrides($names) {
     $overrides = [];
 
-    $blog_values = [
-      'blog_post' => 'blog_post',
-    ];
-
-    // Add article filter values to views.view.bt_content view.
-    if (in_array('views.view.bt_content', $names)) {
-      $views = $this->viewsAdminContent;
-      $filter_values = $views->get('display.default.display_options.filters.type.value');
-      $values = array_merge($filter_values, $blog_values);
-      $overrides['views.view.bt_content']['display']['default']['display_options']['filters']['type']['value'] = $values;
-    }
-
     if (in_array('workflows.workflow.editorial', $names)) {
       $workflow = $this->workflow;
       $entity_types_values = $workflow->get('type_settings.entity_types');
