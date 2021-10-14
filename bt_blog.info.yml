@@ -5,11 +5,4 @@ type: module
 dependencies:
   - bt_image:bt_image
   - bt_cbc:bt_cbc
-  - drupal:node
-  - drupal:views
-  - drupal:menu_ui
-  - drupal:comment
-  - drupal:path
-  - drupal:text
-  - drupal:user
 package: Btester
