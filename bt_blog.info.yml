@@ -5,4 +5,5 @@ type: module
 dependencies:
   - bt_image:bt_image
   - bt_cbc:bt_cbc
+  - blog:blog
 package: Btester

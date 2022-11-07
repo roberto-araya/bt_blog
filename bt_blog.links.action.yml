@@ -5,10 +5,3 @@ bt_add_block_action:
     node_type: 'blog_post'
   appears_on:
       - view.blog.page
-blog.blog_user_all:
-  route_name: 'node.add'
-  title: 'Create a new blog post'
-  route_parameters:
-    node_type: 'blog_post'
-  appears_on:
-      - view.blog.all_user_post

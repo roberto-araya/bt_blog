@@ -144,7 +144,9 @@ echo "  > Enabling module ${MODULE}."
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_cms -y
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_media -y
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_image -y
-"${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable "${MODULE}" -y
+"${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable blog -y
+"${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_cbc -y
+php -d memory_limit=-1 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_blog -y
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" cr
 
 echo "  > Enabling suggested modules, if any."

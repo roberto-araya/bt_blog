@@ -29,10 +29,12 @@ function bt_blog_install() {
     ],
   ];
 
-  foreach ($roles as $role => $new_permissions) {
-    $permissions = \Drupal::service('config.factory')->get($role)->get('permissions');
+  $configFactory = \Drupal::service('config.factory');
 
-    $config = \Drupal::service('config.factory')->getEditable($role);
+  foreach ($roles as $role => $new_permissions) {
+    $permissions = $configFactory->get($role)->get('permissions');
+
+    $config = $configFactory->getEditable($role);
     $config->set('permissions', array_merge($permissions, $new_permissions));
     $config->save();
   }
