@@ -4,4 +4,4 @@ dependencies: {  }
 id: bt_blog_publication
 label: 'Blog post'
 revision: 1
-description: 'Show a blog post'
+description: 'Show a blog post.'

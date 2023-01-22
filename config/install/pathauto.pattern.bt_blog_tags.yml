@@ -7,7 +7,7 @@ dependencies:
 id: bt_blog_tags
 label: 'Tags Blog'
 type: 'canonical_entities:taxonomy_term'
-pattern: '/blog/etiqueta/[term:name]'
+pattern: '/blog/tag/[term:name]'
 selection_criteria:
   65d868e5-3fa1-4872-87b5-a2da3e4be12e:
     id: 'entity_bundle:taxonomy_term'
