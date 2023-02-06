@@ -76,7 +76,7 @@ if [ -n "${DRUPAL_VERSION}" ] && [ -n "${DRUPAL_PROJECT_SHA}" ]; then
   echo "  > Initialising Drupal site from the scaffold commit ${DRUPAL_PROJECT_SHA}."
 
   # Clone Drupal core at the specific commit SHA.
-  git clone -n https://github.com/drupal-composer/drupal-project.git "${BUILD_DIR}"
+  git clone -n https://github.com/roberto-araya/custom-recommended-project.git "${BUILD_DIR}"
   git --git-dir="${BUILD_DIR}/.git" --work-tree="${BUILD_DIR}" checkout "${DRUPAL_PROJECT_SHA}"
   rm -rf "${BUILD_DIR}/.git" > /dev/null
 
@@ -137,7 +137,7 @@ echo "  > Installing Drupal into SQLite database ${DB_FILE}."
 echo "  > Symlinking module code."
 rm -rf "${BUILD_DIR}/web/modules/${MODULE}"/* > /dev/null
 mkdir -p "${BUILD_DIR}/web/modules/${MODULE}"
-ln -s "$(pwd)"/* "${BUILD_DIR}/web/modules/${MODULE}" && rm "${BUILD_DIR}/web/modules/${MODULE}/${BUILD_DIR}"
+ln -s "$(pwd)"/* "${BUILD_DIR}/web/modules/${MODULE}" && rm -Rf "${BUILD_DIR}/web/modules/${MODULE}/${BUILD_DIR}"
 
 echo "  > Enabling module ${MODULE}."
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_core -y
