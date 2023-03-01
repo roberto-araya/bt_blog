@@ -86,6 +86,7 @@ if [ -n "${DRUPAL_VERSION}" ] && [ -n "${DRUPAL_PROJECT_SHA}" ]; then
   cat "${BUILD_DIR}/composer.json"
 
   echo "  > Installing dependencies."
+  php -d memory_limit=-1 "$(command -v composer)" --working-dir="${BUILD_DIR}" update --lock
   php -d memory_limit=-1 "$(command -v composer)" --working-dir="${BUILD_DIR}" install
 else
   echo "  > Initialising Drupal site from the latest scaffold."
