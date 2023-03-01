@@ -1,0 +1,6 @@
+services:
+  bt_blog.config.overrider:
+    class: Drupal\bt_blog\Config\ConfigBlogPostOverride
+    arguments: ['@config.factory']
+    tags:
+      - {name: config.factory.override, priority: 25}
