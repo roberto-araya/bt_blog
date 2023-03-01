@@ -86,7 +86,7 @@ if [ -n "${DRUPAL_VERSION}" ] && [ -n "${DRUPAL_PROJECT_SHA}" ]; then
   cat "${BUILD_DIR}/composer.json"
 
   echo "  > Installing dependencies."
-  php -d memory_limit=-1 "$(command -v composer)" --working-dir="${BUILD_DIR}" update --lock
+  php -d memory_limit=-1 "$(command -v composer)" --working-dir="${BUILD_DIR}" update
   php -d memory_limit=-1 "$(command -v composer)" --working-dir="${BUILD_DIR}" install
 else
   echo "  > Initialising Drupal site from the latest scaffold."
@@ -147,7 +147,6 @@ echo "  > Enabling module ${MODULE}."
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_cms -y
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_media -y
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_image -y
-"${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable blog -y
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_cbc -y
 php -d memory_limit=-1 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" pm:enable bt_blog -y
 "${BUILD_DIR}/vendor/bin/drush" -r "${BUILD_DIR}/web" cr
